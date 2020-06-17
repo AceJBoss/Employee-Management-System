@@ -24,7 +24,7 @@ public class EmsApplication {
     public Docket swaggerConfiguration(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .paths(PathSelectors.ant("/api/v1/*"))
+                .paths(PathSelectors.ant("/api/v1/company/*"))
                 .apis(RequestHandlerSelectors.basePackage("com.jboss"))
                 .build()
                 .apiInfo(apiDetails());

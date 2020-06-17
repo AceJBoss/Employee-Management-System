@@ -1,13 +1,12 @@
 package com.jboss.ems.repository;
 
+import com.jboss.ems.model.Department;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.jboss.ems.model.Employee;
-
-@Qualifier("emps")
+@Qualifier("depts")
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-
+public interface DepartmentRepository extends JpaRepository<Department, Integer> {
+    Department findByName(String name);
 }

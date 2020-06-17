@@ -18,17 +18,17 @@ import com.jboss.ems.model.Employee;
 import com.jboss.ems.repository.EmployeeRepository;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/company")
 public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @GetMapping("/employees")
+    @GetMapping("/view-employees")
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("/view-employee/{id}")
     @ApiOperation(
             value = "Find Employee by ID",
             notes = "Provide a valid ID to search for an Employee",
@@ -38,7 +38,7 @@ public class EmployeeController {
        return employeeRepository.findById(employeeId).orElse(null);
     }
 
-    @PostMapping("/employees")
+    @PostMapping("/add-employee")
     public Employee createEmployee(@Valid @RequestBody Employee employee) {
         return employeeRepository.save(employee);
     }
